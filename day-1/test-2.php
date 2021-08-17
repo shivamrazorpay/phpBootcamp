@@ -1,10 +1,10 @@
 <?php
 
-function masked_number($phone_number){
+function masked_number($phone_number,$symbol,$start,$end){
     $masked_num="";
         for($i=0;$i<strlen($phone_number);$i++){
-        if($i>="2" && $i<="7"){
-            $masked_num.="*";
+        if($i>=$start && $i<=$end){
+            $masked_num.=$symbol;
         }
         else{
             $masked_num.=$phone_number[$i];
@@ -14,5 +14,5 @@ function masked_number($phone_number){
 }
 
 $phone_number = "1234567890";
-echo masked_number($phone_number);
+echo masked_number($phone_number,'*',2,7);
 ?>
